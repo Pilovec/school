@@ -26,15 +26,15 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{% url 'index' %}">
                     	<h1><img src="{% static 'images/logo.png' %}" alt="logo"></h1>
                     </a>
 
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="index.html">Головна</a></li>
-                        <li><a href="index.html">Новини</a></li>
+                        <li class="active"><a href="{% url 'index' %}">Головна</a></li>
+                        <li><a href="{% url 'blog' %}">Новини</a></li>
                         <li class="dropdown"><a href="#">Колектив <i class="fa fa-angle-down"></i></a>
                             <ul role="menu" class="sub-menu">
                                 <li><a href="aboutus.html">Адміністрація</a></li>
