@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'zozh3.apps.Zozh3Config',
+    'blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [

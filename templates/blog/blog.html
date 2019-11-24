@@ -18,24 +18,41 @@
    </section>
     <!--/#page-breadcrumb-->
 
+
+
     <section id="blog" class="padding-top">
         <div class="container">
+          <div class="col-md-4 col-sm-12">
+            <form action="{% url 'blog' %}" method="POST">
+                  {% csrf_token %}
+                  <div class="form-group ">
+                    <label for="date">Виберіть дату</label>
+                    <input type="date" name="date" class="form-control " required>
+                  </div>
+                  <div class="form-group ">
+                    <input type="submit" value="Go!" class="btn btn-submit">
+                  </div>
+            </form>
+          </div>
+
+
             <div class="row">
                 <div class="col-md-9 col-sm-7">
                     <div class="row">
+                      {% for post in posts %}
 
                          <div class="col-sm-12 col-md-12">
                             <div class="single-blog single-column">
-                                <div class="post-thumb">
+                                {# <div class="post-thumb">
                                     <a href="blogdetails.html"><img src="{% static 'images/blog/7.jpg' %}" class="img-responsive" alt=""></a>
                                     <div class="post-overlay">
                                        <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
                                    </div>
-                                </div>
+                                </div> #}
                                 <div class="post-content overflow">
-                                    <h2 class="post-title bold"><a href="{{ title_link }}">{{ title }}</a></h2>
-                                    <h3 class="post-author"><a href="#">Posted by micron News</a></h3>
-                                    <p>{{ short_descr }}</p>
+                                    <h2 class="post-title bold"><a href="{{ post.title }}">{{ title }}</a></h2>
+                                    <h3 class="post-author"><a href="#">{{ post.sourse }}</a></h3>
+                                    <p>{{ post.description }}</p>
                                     <a href="#" class="read-more">View More</a>
                                     <div class="post-bottom overflow">
                                         <ul class="nav navbar-nav post-nav">
@@ -47,52 +64,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-12">
-                            <div class="single-blog single-column">
-                                <div class="post-thumb">
-                                    <a href="blogdetails.html"><img src="images/blog/8.jpg" class="img-responsive" alt=""></a>
-                                    <div class="post-overlay">
-                                       <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
-                                   </div>
-                                </div>
-                                <div class="post-content overflow">
-                                    <h2 class="post-title bold"><a href="blogdetails.html">Advanced business cards design</a></h2>
-                                    <h3 class="post-author"><a href="#">Posted by micron News</a></h3>
-                                    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber [...]</p>
-                                    <a href="#" class="read-more">View More</a>
-                                    <div class="post-bottom overflow">
-                                        <ul class="nav navbar-nav post-nav">
-                                            <li><a href="#"><i class="fa fa-tag"></i>Creative</a></li>
-                                            <li><a href="#"><i class="fa fa-heart"></i>32 Love</a></li>
-                                            <li><a href="#"><i class="fa fa-comments"></i>3 Comments</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-12">
-                            <div class="single-blog single-column">
-                                <div class="post-thumb">
-                                    <a href="blogdetails.html"><img src="images/blog/9.jpg" class="img-responsive" alt=""></a>
-                                    <div class="post-overlay">
-                                       <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
-                                   </div>
-                                </div>
-                                <div class="post-content overflow">
-                                    <h2 class="post-title bold"><a href="blogdetails.html">Advanced business cards design</a></h2>
-                                    <h3 class="post-author"><a href="#">Posted by micron News</a></h3>
-                                    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber [...]</p>
-                                    <a href="#" class="read-more">View More</a>
-                                    <div class="post-bottom overflow">
-                                        <ul class="nav navbar-nav post-nav">
-                                            <li><a href="#"><i class="fa fa-tag"></i>Creative</a></li>
-                                            <li><a href="#"><i class="fa fa-heart"></i>32 Love</a></li>
-                                            <li><a href="#"><i class="fa fa-comments"></i>3 Comments</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                      {% endfor %}
+
                     </div>
                     <div class="blog-pagination">
                         <ul class="pagination">
