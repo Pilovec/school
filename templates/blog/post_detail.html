@@ -25,16 +25,19 @@
               <div class="row">
                    <div class="col-md-12 col-sm-12">
                       <div class="single-blog blog-details two-column">
-                          {# <div class="post-thumb">
+                           <div class="post-thumb">
                               <a href="#"><img src="images/blog/7.jpg" class="img-responsive" alt=""></a>
                               <div class="post-overlay">
                                   <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
                               </div>
-                          </div> #}
+                          </div>
                           <div class="post-content overflow">
-                              <h2 class="post-title bold"><a href="#">{{ object.title }}</a></h2>
-                              <h3 class="post-author"><a href="#">{{ object.source }}</a></h3>
-                              <p>{{ object.description }}</p>
+                              <h2 class="post-title bold"><a href="#">{{ post.title }}</a></h2>
+                              <h3 class="post-author"><a href="#">{{ post.source }}</a></h3>
+                              {{ post.description }}
+                               <!--{% for p in text %}
+                                <p style="white-space: pre-wrap;">        {{ p }}</p>
+                              {% endfor %} -->
                               <div class="post-bottom overflow">
                                   <ul class="nav navbar-nav post-nav">
                                       <li><a href="#"><i class="fa fa-tag"></i>Creative</a></li>

@@ -1,10 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
+from blog.models import Post, Source
 
 def index(request):
-    return render(request, 'zozh3/index.html')
-
-
-
-
+    posts = Post.objects.order_by('-pub_date')[:6]
+    context = {
+        'posts': posts
+    }
+    return render(request, 'zozh3/index.html', context)

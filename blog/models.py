@@ -1,17 +1,23 @@
 from django.db import models
+from unidecode import unidecode
 from django.template.defaultfilters import slugify
+# from django.utils.text import slugify
 from django.urls import reverse
 
 class Source(models.Model):
     name = models.CharField(max_length=100, unique=True)
+    link = models.CharField(max_length=100, blank=True)
     # slug = models.SlugField(max_length=100, unique=True)
 
     def __str__(self):
         return self.name
 
+
+
 class Post(models.Model):
     title = models.CharField(max_length = 200)
-    slug = models.SlugField(null=False, unique=True)
+    post_link = models.CharField(max_length = 200, blank=True)
+    slug = models.SlugField(null=False, unique=True, max_length=50)
     short_description = models.TextField()
     description = models.TextField()
     photo_main = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
@@ -36,5 +42,5 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs): # new
         if not self.slug:
-            self.slug = slugify(self.title)
+            self.slug = slugify(unidecode(self.title))[:50]
         return super().save(*args, **kwargs)
