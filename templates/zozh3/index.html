@@ -66,29 +66,30 @@
                     <div class="row">
                       {% for post in posts %}
                         {% if post %}
-                         <div class="col-sm-12 col-md-12">
-                            <div class="single-blog single-column">
-                                <div class="post-thumb">
-                                    <a href="{{ post.get_absolute_url }}"><img src="images/blog/7.jpg" class="img-responsive" alt=""></a>
-                                    <div class="post-overlay">
-                                       <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
-                                   </div>
-                                </div>
-                                <div class="post-content overflow">
-                                    <h2 class="post-title bold"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
-                                    <h3 class="post-author"><a href="#">{{ post.source }}</a></h3>
-                                    <p>{{ post.short_description }}</p>
-                                    <a href="{{ post.get_absolute_url }}" class="read-more">View More</a>
-                                    <div class="post-bottom overflow">
-                                        <ul class="nav navbar-nav post-nav">
-                                            <li><a href="#"><i class="fa fa-tag"></i>Creative</a></li>
-                                            <li><a href="#"><i class="fa fa-heart"></i>32 Love</a></li>
-                                            <li><a href="#"><i class="fa fa-comments"></i>3 Comments</a></li>
-                                        </ul>
+                            <div class="col-sm-12 col-md-12">
+                                <div class="single-blog single-column">
+                                    <div class="col-sm-3 col-md-3" >
+                                        <div class="post-thumb">
+                                            <a href="{{ post.post_link }}"><img src="{{ post.photo_main }}" class="img-responsive" style="width:100%" alt=""></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-9 col-md-9">
+                                        <div class="post-content overflow">
+                                            <h2 class="post-title bold"><a href="{{ post.post_link }}" target="_blank">{{ post.title }}</a></h2>
+                                            <h3 class="post-author"><a href="{{ post.source.link }}" target="_blank">{{ post.source }}</a></h3>
+                                            <p>{{ post.short_description }}</p>
+                                            <a href="{{ post.post_link }} target="_blank"" class="read-more">View More</a>
+                                            <div class="post-bottom overflow">
+                                                <ul class="nav navbar-nav post-nav">
+                                                    <li><a href="#"><i class="fa fa-tag"></i>Creative</a></li>
+                                                    <li><a href="#"><i class="fa fa-heart"></i>32 Love</a></li>
+                                                    <li><a href="#"><i class="fa fa-comments"></i>3 Comments</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         {% endif %}
                       {% endfor %}
 
